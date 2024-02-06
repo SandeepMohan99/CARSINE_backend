@@ -27,6 +27,8 @@ myServer.use(cors())
 /* Returns middleware that only parses json and only looks at requests */
 myServer.use(express.json())
 
+//myServer.use(express.urlencoded({extended:false}))
+
 /* use router */
 myServer.use(router)
 
