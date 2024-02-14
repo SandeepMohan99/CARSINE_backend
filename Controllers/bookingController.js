@@ -40,3 +40,33 @@ exports.addBooking = async(req,res)=>{
 
     
 }
+
+  /* logic to get userdata */
+
+  exports.getUserdata = async(req,res)=>{
+    const  userId = req.payload
+    try {
+      const allUserData = await booking.find({userId})
+      res.status(200).json(allUserData)
+    } catch (err) {
+      res.status(401).json(`Request failed due to ${err}`)
+      
+    }
+  }
+
+
+  /* logic to remove user */
+
+  exports.deleteUser = async(req,res)=>{
+
+    const {id} = req.params
+
+    try {
+
+      const removeUser = await booking.findByIdAndDelete({_id:id})
+        res.status(200).json(removeUser)
+      }    
+      catch (err) {
+      res.status(401).json(err)
+    }
+  }

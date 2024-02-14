@@ -80,3 +80,21 @@ exports.login = async(req,res)=>{
   }
 
   }
+
+  /* get all userdata */
+
+  /* 
+    exports.getAllUserData = async(req,res)=>{
+
+    try {
+      const allUsers = await bookings.find()
+      res.status(200).json(allUsers)
+    } catch (err) {
+      res.status(401).json(`Request failed due to ${err}`)
+    }
+  }
+
+  */
+
+
+

@@ -25,6 +25,12 @@ const router = new express.Router()
     /*add booking  */
 
     router.post('/booking/add',jwtMiddleware,bookingController.addBooking)
+    
+    /* get bookings */
+    router.get('/user/booking',jwtMiddleware,bookingController.getUserdata)
+
+    /* delete booking */
+    router.delete('/user/remove/:id',jwtMiddleware,bookingController.deleteUser)
 
 /* last step  exporting this router to get in index.js */
 module.exports = router 
