@@ -21,10 +21,11 @@ exports.addBooking = async(req,res)=>{
 
     try {
 
-        const existingBooking = await booking.findOne({mobilenumber})
+        const existingBooking = await booking.findOne({ $or: [{ vehiclenumber }, { date, time }] })
         if (existingBooking) {
             res.status(406).json('Booking Already Exist')
-        } else {
+        } 
+        else { 
             const newBooking = booking({
                 username,mobilenumber,email,vehiclenumber,date,time,wash,detail,interior,cartype,userId
             })
@@ -36,8 +37,6 @@ exports.addBooking = async(req,res)=>{
         res.status(401).json(`Request failed due to ${err}`)
         
     }
-
-
     
 }
 
@@ -70,3 +69,6 @@ exports.addBooking = async(req,res)=>{
       res.status(401).json(err)
     }
   }
+
+  
+
